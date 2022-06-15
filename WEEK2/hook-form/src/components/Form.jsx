@@ -67,7 +67,7 @@ const Form = (props) => {
                         <td>{password}</td>
                     </tr>
                     <tr>
-                        <td>First Name</td>
+                        <td>Confirm Password</td>
                         <td>{passwordConfirm}</td>
                     </tr>
                 </table>
