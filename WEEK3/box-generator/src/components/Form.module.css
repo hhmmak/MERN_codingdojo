@@ -1,0 +1,31 @@
+.form {
+    margin: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formLabel {
+    font-size: 18px;
+}
+
+.formText {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.btn {
+    margin-left: 10px;
+    padding: 3px 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.validation {
+    padding: 5px 30px;
+    color: #b00;
+}
