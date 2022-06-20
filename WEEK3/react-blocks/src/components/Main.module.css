@@ -1,0 +1,7 @@
+.block {
+    background-color: #e06666;
+    width: 67%;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
