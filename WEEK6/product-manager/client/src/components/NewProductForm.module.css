@@ -1,0 +1,38 @@
+.formContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 40%;
+}
+
+.formDiv {
+  margin: 10px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  border-top: #aaa solid 1px;
+  border-bottom: #aaa solid 1px;
+  color: #666;
+}
+
+.formDiv > input {
+  padding: 8px 10px;
+  width: 15rem;
+  border: #ccc solid 1px;
+}
+
+.formSubmit {
+  display: flex;
+  justify-content: center;
+}
+
+.submitBtn {
+  padding: 8px 40px;
+  background-color: none;
+  border: none;
+}
