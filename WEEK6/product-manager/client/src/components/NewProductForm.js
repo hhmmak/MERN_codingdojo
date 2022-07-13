@@ -7,16 +7,8 @@ const NewProductForm = (props) => {
   const [title, setTitle] = useState("")
   const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
-  
-// test if post request is working
-  // const [products, setProducts] = useState([]);
-  // const [change, setChange] = useState(true);
 
-  // useEffect( () => {
-  //   axios.get("http://localhost:8000/api/product")
-  //     .then(res => setProducts(res.data.product))
-  //     .catch(err => console.log("=== GET product: ", err))
-  // }, [change])
+  const {products, setProducts} = props;
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -29,7 +21,7 @@ const NewProductForm = (props) => {
     .then(res => {
       console.log("=== res", res);
       console.log("=== res.data", res.data);
-      // setChange(!change); // test if post requiest is working
+      setProducts([...products, res.data]);
     })
     .catch(err => console.log("=== POST people:", err));
   }
@@ -53,20 +45,6 @@ const NewProductForm = (props) => {
           <input type="submit" value="Create" className={styles.submitBtn} onClick={onClickHandler} />
         </div>
       </form>
-{/* test if POST is working */}
-      {/* <table>
-        <tbody>
-        {
-          products.map( (product, index) =>
-          <tr key={index}>
-            <td>{product.title}</td>
-            <td>{product.price}</td>
-            <td>{product.description}</td>
-          </tr>
-          )
-          }
-        </tbody>
-      </table> */}
     </div>
   );
 }

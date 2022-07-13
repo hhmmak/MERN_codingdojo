@@ -1,0 +1,15 @@
+.listContainer {
+  text-align: center;
+  margin: 16px;
+  padding: 10px;
+}
+
+.listContainer ul {
+  padding: 0px;
+  list-style-type: none;
+}
+
+.listContainer li {
+  margin: 1rem;
+}
+

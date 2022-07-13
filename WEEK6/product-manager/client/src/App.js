@@ -1,13 +1,16 @@
-import './App.css';
-import NewProductForm from './components/NewProductForm';
-import Header from './components/Header';
+import Main from './views/Main';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProductDisplay from './components/ProductDisplay';
 
 function App() {
+  
   return (
-    <div>
-      <Header />
-      <NewProductForm />
-    </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" default element={<Main />} />
+      <Route path="/product/:id" default element={<ProductDisplay />} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
