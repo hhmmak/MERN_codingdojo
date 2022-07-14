@@ -1,11 +1,11 @@
 .listContainer {
   text-align: center;
-  margin: 16px;
-  padding: 10px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .listContainer ul {
-  padding: 0px;
+  padding: 0;
   list-style-type: none;
 }
 
