@@ -13,3 +13,10 @@
   margin: 1rem;
 }
 
+.listContainer button {
+  padding: 0.2rem 1.5rem;
+  margin: 0px 1rem;
+  border-radius: 0.3rem;
+  border: none;
+}
+
