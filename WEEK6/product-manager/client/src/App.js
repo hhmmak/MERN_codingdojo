@@ -1,10 +1,11 @@
-import Main from './views/Main';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Main from './views/Main';
 import ProductDisplay from './components/ProductDisplay';
 import ProductUpdate from './components/ProductUpdate'
 
 function App() {
-  
+
   return (
   <BrowserRouter>
     <Routes>

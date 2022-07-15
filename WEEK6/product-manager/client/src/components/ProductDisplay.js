@@ -1,7 +1,11 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+
 import styles from './ProductDisplay.module.css';
+import EditButton from './EditButton';
+import DeleteButton from './DeleteButton';
+import Button from './Button';
 
 const ProductDisplay = (props) => {
 
@@ -15,20 +19,15 @@ const ProductDisplay = (props) => {
       .catch( err => console.log(err) );
   }, [id]);
 
-  const deleteProduct = () => {
-    axios.delete(`http://localhost:8000/api/product/${id}`)
-    .then( res => navigate('/') )
-    .catch( err => console.log(err) );
-  }
-
   return (
     <div className={styles.displayContainer}>
       <h2>{product.title}</h2>
       <p>Price: ${product.price}</p>
       <p>Description: {product.description}</p>
-      <button onClick={e => navigate(`/edit/${id}`)}>Edit</button>
-      <button onClick={e => navigate('/')}>Back</button>
-      <button onClick={deleteProduct}>Delete</button>
+      <EditButton id={product._id} />
+      <DeleteButton id={product._id} deleteCallback={() => navigate('/')} />
+      <Button onClickCallback={e => navigate('/')} buttonValue={"Home"}/>
+      
     </div>
   );
 }

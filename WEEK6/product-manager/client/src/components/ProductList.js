@@ -1,39 +1,34 @@
-import axios from 'axios';
-import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import DeleteButton from './DeleteButton';
+import EditButton from './EditButton';
 import styles from './ProductList.module.css';
 
 const ProductList = (props) => {
-
-  const {products, setProducts} = props;
-  const navigate = useNavigate();
   
-  useEffect( () => {
-    axios.get("http://localhost:8000/api/product")
-      .then(res => setProducts(res.data.product))
-      .catch(err => console.log("=== GET product: ", err))
-  }, [products]);
+  const {products, setProducts} = props;
 
   const deleteProduct = (id) => {
-    axios.delete(`http://localhost:8000/api/product/${id}`)
-      .then( res => setProducts(products.filter( item => item._id !== id)) )
-      .catch( err => console.log(err) );
-  }
+    setProducts(products.filter( item => item._id !== id));
+  };
 
   return (
     <div className={styles.listContainer}>
       <h2>All Product</h2>
-      <ul>
+      <table>
+        <tbody>
         {
           products.map( (product, index) =>
-          <li key={index}>
-            <Link to={`/product/${product._id}`}>{product.title}</Link>
-            <button onClick={e => navigate(`/edit/${product._id}`)}>Edit</button>
-            <button onClick={e => deleteProduct(product._id)}>Delete</button>
-          </li>
+          <tr key={index}>
+            <td><Link to={`/product/${product._id}`} className={styles.links}>{product.title}</Link></td>
+            <td>
+              <EditButton id={product._id}/>
+              <DeleteButton id={product._id} deleteCallback={() => deleteProduct(product._id)}/>
+            </td>
+          </tr>
           )
         }
-      </ul>
+        </tbody>
+      </table>
     </div>
   );
 };

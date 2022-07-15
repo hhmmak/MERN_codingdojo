@@ -1,59 +1,42 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import styles from './ProductUpdate.module.css';
+
+import Header from "./Header";
+import ProductForm from "./ProductForm";
 
 const ProductUpdate = (props) => {
 
   const {id} = useParams();
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("")
-  const [description, setDescription] = useState("")
+
+  const [loaded, setLoaded] = useState(false);
+  const [product, setProduct] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/product/${id}`)
       .then(res => {
-        setTitle(res.data.product.title);
-        setPrice(res.data.product.price);
-        setDescription(res.data.product.description);
+        setProduct(res.data.product);
+        setLoaded(true);
       })
       .catch(err => console.log(err));  
-  }, [])
+  }, [id, product])
 
-  const onUpdateHandler = (e) => {
-    e.preventDefault();
+  const updateProduct = (newProduct) => {
 
-    axios.put(`http://localhost:8000/api/product/${id}`, {
-      title,
-      price,
-      description
-    })
-      .then(res => navigate('/'))
+    axios.put(`http://localhost:8000/api/product/${id}`, newProduct)
+      .then(res => navigate(`/product/${id}`))
       .catch(err => console.log(err));
-  };
+  }
   
 
   return(
-    <div className={styles.formContainer}>
-      <form onSubmit={onUpdateHandler}>
-      <div className={styles.formDiv}>
-          <label>Title</label>
-          <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
-        </div>
-        <div className={styles.formDiv}>
-          <label>Price</label>
-          <input type="text" onChange={(e) => setPrice(e.target.value)} value={price}/>
-        </div>
-        <div className={styles.formDiv}>
-          <label>Description</label>
-          <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
-        </div>
-        <div className={styles.formSubmit}>
-          <input type="submit" value="Update" className={styles.submitBtn}/>
-        </div>
-      </form>
-    </div>
+    <>
+      <Header title={"Update Product"} />
+      {loaded &&
+        <ProductForm initialProduct={product} submitProduct={updateProduct} submitValue={"Update"}/>
+      }
+    </>
   );
 };
 
