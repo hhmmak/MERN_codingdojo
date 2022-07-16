@@ -1,0 +1,39 @@
+form {
+  border: 3px solid #ddd;
+  padding: 1rem;
+}
+
+label {
+  margin: 1rem;
+  display: block;
+  font-size: 16px;
+}
+
+input {
+  margin: 1rem;
+  padding: 5px 0.8rem 5px 4px;
+  display: block;
+  font-size: 16px;
+}
+
+.formButtons {
+  margin: 1.5rem 1rem;
+}
+
+.formButtons > button {
+  margin-right: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #42afe9;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.errorMsg {
+  margin: 0px 0px 1rem 1rem;
+  color: #d00d0d;
+  font-size: 14px;
+
+}

@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+}
+
+thead > tr {
+  background-color: #eee;
+}
+
+th, td {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #000;
+}
+.actionButtons {
+  text-align: center;
+}
+
+.actionButtons > button {
+  margin: 0 0.2rem;
+  padding: 0.4rem 1.8rem;
+  border-radius: 0.2rem;
+}
