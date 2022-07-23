@@ -27,8 +27,8 @@ function App() {
 
   return (
     <div className="container">
-      { people.map( person =>
-          <PersonCard firstName={person.firstName} lastName={person.lastName} age={person.age} hairColor={person.hairColor}/>
+      { people.map( (person, index) =>
+          <PersonCard key={index} firstName={person.firstName} lastName={person.lastName} age={person.age} hairColor={person.hairColor}/>
         )
       }
     </div>
